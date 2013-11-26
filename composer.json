@@ -1,0 +1,11 @@
+{
+    "name": "PureLib MongoDB Lib",
+    "require": {
+    }
+    , "autoload": {
+		"psr-0": {
+			"PureLib\\MongoDB\\Test\\": "tests"
+			,"PureLib\\MongoDB\\": "src"
+		}
+    }
+}

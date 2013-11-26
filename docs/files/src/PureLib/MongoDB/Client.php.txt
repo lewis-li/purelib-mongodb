@@ -1,0 +1,57 @@
+<?php
+
+namespace PureLib\MongoDB;
+
+class Client extends \MongoClient
+{
+	/**
+	 * 
+	 * @param string $database_name
+	 * @return Ambigous <\PureLib\MongoDB\DB, \PureLib\MongoDB\DB>
+	 */
+	public function __get($database_name)
+	{
+		return $this->selectDB($database_name);
+	}
+
+	/**
+	 * 
+	 * @param string $database_name
+	 * @return \PureLib\MongoDB\DB
+	 */
+	public function selectDB($database_name)
+	{
+		return DB::select($this, $database_name);
+	}
+
+	/**
+	 * 
+	 * @param string $database_name
+	 * @return \PureLib\MongoDB\DB
+	 */
+	public function newDB($database_name)
+	{
+		return DB::newDB($this, $database_name);
+	}
+	
+	/**
+	 * @deprecated
+	 * @param string $database_name
+	 * @throws \MongoException
+	 */
+	public function dropDB($database_name)
+	{
+		throw new \MongoException('this method have been abandoned.');
+	}
+	
+	/**
+	 * 
+	 * @param string $database_name
+	 * @param string $collection_name
+	 * @return MongoCollection
+	 */
+	public function selectCollection($database_name, $collection_name=null)
+	{
+		return DB::select($this, $database_name)->selectCollection($collection_name);
+	}
+}

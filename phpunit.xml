@@ -1,0 +1,10 @@
+<phpunit color="true"
+	 bootstrap="tests/bootstrap.php"
+>
+	<testsuites>
+		<testsute name="MongoDB Test Suite">
+			<directory sufffix=".php">./tests</directory>
+		</testsute>
+
+	</testsuites>
+</phpunit>
