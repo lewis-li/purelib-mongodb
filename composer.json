@@ -1,5 +1,5 @@
 {
-    "name": "PureLib/MongoDB",
+    "name": "purelib/mongodb",
     "require": {
     }
     , "autoload": {
